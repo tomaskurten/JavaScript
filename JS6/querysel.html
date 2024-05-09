@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+    <div class="ejemplo">Ejemplo 1</div>
+    <p class="ejemplo">Ejemplo 2</p>
+    <h1 class="ejemplo">Ejemplo 3</h1>
+
+    <button onclick="cambiarcolor()">Cambiar color</button>
+
+
+
+    <script>
+        function cambiarcolor(){
+           // document.querySelector(".ejemplo").style.backgroundColor="red"
+            elems=document.querySelectorAll(".ejemplo")
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.backgroundColor="red"
+                }
+        }
+    </script>
+</body>
+</html>

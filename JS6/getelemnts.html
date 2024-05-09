@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function cambiarTexto(){
+            elems=document.getElementsByClassName("ejemplo")
+
+
+            for (i = 0; i < elems.length; i++) {
+                elems[i].innerHTML=(i+1)
+                elems[i].style.color = "red"
+                }
+               
+
+        }
+    </script>
+</head>
+<body>
+    
+    <div class="ejemplo">Ejemplo 1</div>
+    <div class="ejemplo">Ejemplo 2</div>
+    <div class="ejemplo">Ejemplo 3</div>
+
+    <button onclick="cambiarTexto()">Cambiar texto</button>
+</body>
+</html>
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<body>
+ <p id="p1">Este texto se va modificar</p>
+
+ <script>
+ parrafo = document.getElementById("p1")
+
+ parrafo.style.color = "red" // <p id="p1" class="data" style="color:red">Codo a Codo</p>
+ </script>
+</body>
+</html> -->
