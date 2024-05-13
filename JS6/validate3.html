@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Validaciones JS</title>
+</head>
+<body>
+<form name="fvalida">
+<table>
+<tr>
+<td>Nombre: </td>
+<td><input type="text" name="nombre" size="30" maxlength="100"></td>
+</tr>
+<tr>
+<td>Edad: </td>
+<td><input type="text" name="edad" size="3" maxlength="2"></td>
+</tr>
+<tr>
+<td>Interés:</td>
+<td>
+<select name="interes">
+<option value="Elegir">Elegir</option>
+<option value="Comercial">Contacto comercial</option>
+<option value="Clientes">Atención al cliente</option>
+<option value="Proveedores">Contacto de proveedores</option>
+</select>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center"><input type="button" value="Enviar" onclick="valida_envia()"></td>
+</tr>
+</table>
+</form>
+
+<div id="error-message" style="color: red;"></div>
+
+<script>
+function displayError(message) {
+    document.getElementById("error-message").innerHTML = "<p>" + message + "</p>";
+}
+
+function valida_envia() {
+    document.getElementById("error-message").innerHTML = "";
+
+    if (document.fvalida.nombre.value.length == 0) {
+        displayError("Tiene que escribir su nombre");
+        return 0;
+    }
+
+    let edad = document.fvalida.edad.value;
+
+    edad = validarEntero(edad);
+    document.fvalida.edad.value = edad;
+    if (edad == "") {
+        displayError("Tiene que introducir un número entero en su edad.");
+        return 0;
+    } else {
+        if (edad < 18) {
+            displayError("Debe ser mayor de 18 años.");
+            return 0;
+        }
+    }
+
+    if (document.fvalida.interes.selectedIndex == 0) {
+        displayError("Debe seleccionar un motivo de su contacto.");
+        return 0;
+    }
+
+    alert("Muchas gracias por enviar el formulario");
+    document.fvalida.submit();
+}
+
+function validarEntero(valor) {
+    valor = parseInt(valor);
+    if (isNaN(valor)) {
+        return "";
+    } else {
+        return valor;
+    }
+}
+</script>
+</body>
+</html>
