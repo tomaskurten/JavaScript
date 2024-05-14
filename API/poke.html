@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>       
+        const buscarPokemon=async()=>{
+                  respNombre= await fetch('https://pokeapi.co/api/v2/pokemon')
+                  pokeNombre=await respNombre.json()
+        
+        
+          for (var i = 1; i <20; i++) {
+           respHabil= await fetch(`https://pokeapi.co/api/v2/pokemon/${i+1}`)
+           pokeHabil=await respHabil.json()
+           document.write(`<img src="${pokeHabil.sprites.front_default}">`)
+           document.write("Nombre: "+pokeNombre.results[i].name+"  ")
+           document.write("Habilidad:"+pokeHabil.abilities[0].ability.name+" ")
+           document.write("<br><br><br><br><br>")
+                      }
+                }
+                buscarPokemon()
+         </script>
+        
+</body>
+</html>
